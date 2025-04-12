@@ -45,8 +45,5 @@ The project aims to:
 - **FileHandler**: Handles reading/writing to CSV files.
 - **Menu**: Provides the command-line interface and input validation.
 
-### Challenges Faced
-- Ensuring date parsing was robust by using `LocalDate` and handling invalid formats.
-- Implementing partial updates in `updateExpense` required null checks for optional fields.
-- Maintaining unique IDs across sessions was achieved by tracking `nextId`.
+
 
