@@ -16,14 +16,14 @@ public class ExpenseManager {
         loadExpenses();
     }
 
-    // Create
+
     public void addExpense(double amount, String category, LocalDate date, String description) {
         Expense expense = new Expense(nextId++, amount, category, date, description);
         expenses.add(expense);
         saveExpenses();
     }
 
-    // Read
+
     public List<Expense> getAllExpenses() {
         return new ArrayList<>(expenses);
     }
@@ -37,7 +37,7 @@ public class ExpenseManager {
         return null;
     }
 
-    // Update
+
     public boolean updateExpense(int id, Double amount, String category, LocalDate date, String description) {
         Expense expense = getExpenseById(id);
         if (expense == null) {
@@ -59,7 +59,7 @@ public class ExpenseManager {
         return true;
     }
 
-    // Delete
+
     public boolean deleteExpense(int id) {
         Expense expense = getExpenseById(id);
         if (expense == null) {
@@ -70,7 +70,7 @@ public class ExpenseManager {
         return true;
     }
 
-    // Report: Total expenses
+
     public double getTotalExpenses() {
         double total = 0;
         for (Expense expense : expenses) {
@@ -79,7 +79,7 @@ public class ExpenseManager {
         return total;
     }
 
-    // Report: Expenses by category
+
     public Map<String, Double> getExpensesByCategory() {
         return expenses.stream()
                 .collect(Collectors.groupingBy(
@@ -87,7 +87,7 @@ public class ExpenseManager {
                         Collectors.summingDouble(Expense::getAmount)));
     }
 
-    // Load expenses from file
+
     private void loadExpenses() {
         List<String> lines = fileHandler.readFile();
         for (String line : lines) {
@@ -96,7 +96,7 @@ public class ExpenseManager {
         }
     }
 
-    // Save expenses to file
+
     private void saveExpenses() {
         List<String> lines = new ArrayList<>();
         for (Expense expense : expenses) {
@@ -105,7 +105,7 @@ public class ExpenseManager {
         fileHandler.writeFile(lines);
     }
 
-    // Import expenses from CSV
+
     public void importExpenses(String filename) {
         FileHandler importFile = new FileHandler(filename);
         List<String> lines = importFile.readFile();
@@ -116,7 +116,7 @@ public class ExpenseManager {
         saveExpenses();
     }
 
-    // Export expenses to CSV
+
     public void exportExpenses(String filename) {
         FileHandler exportFile = new FileHandler(filename);
         List<String> lines = new ArrayList<>();

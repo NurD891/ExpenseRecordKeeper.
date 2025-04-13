@@ -19,7 +19,7 @@ public class FileHandler {
                 }
             }
         } catch (IOException e) {
-            // File doesn't exist yet, return empty list
+
         }
         return lines;
     }

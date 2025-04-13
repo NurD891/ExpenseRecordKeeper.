@@ -18,15 +18,15 @@ public class ExpenseApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Initialize ExpenseManager
+
         manager = new ExpenseManager();
 
-        // Create output area for viewing expenses and reports
+
         outputArea = new TextArea();
         outputArea.setEditable(false);
         outputArea.setPrefHeight(200);
 
-        // Create buttons
+
         Button addButton = new Button("Add Expense");
         Button viewButton = new Button("View All Expenses");
         Button updateButton = new Button("Update Expense");
@@ -36,7 +36,7 @@ public class ExpenseApp extends Application {
         Button exportButton = new Button("Export Expenses");
         Button exitButton = new Button("Exit");
 
-        // Set button actions
+
         addButton.setOnAction(e -> showAddExpenseForm(primaryStage));
         viewButton.setOnAction(e -> viewExpenses());
         updateButton.setOnAction(e -> showUpdateExpenseForm(primaryStage));
@@ -46,33 +46,33 @@ public class ExpenseApp extends Application {
         exportButton.setOnAction(e -> exportExpenses(primaryStage));
         exitButton.setOnAction(e -> primaryStage.close());
 
-        // Layout for buttons (two rows for better spacing)
+
         HBox topButtonRow = new HBox(10, addButton, viewButton, updateButton, deleteButton);
         HBox bottomButtonRow = new HBox(10, reportButton, importButton, exportButton, exitButton);
         topButtonRow.setAlignment(Pos.CENTER);
         bottomButtonRow.setAlignment(Pos.CENTER);
 
-        // Main layout
+
         VBox root = new VBox(10, topButtonRow, bottomButtonRow, outputArea);
         root.setPadding(new Insets(10));
         root.setAlignment(Pos.TOP_CENTER);
 
-        // Create scene
+
         Scene scene = new Scene(root, 600, 400);
 
-        // Set up stage
+
         primaryStage.setTitle("Expense Record Keeper");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    // Form for adding an expense
+
     private void showAddExpenseForm(Stage owner) {
         Stage formStage = new Stage();
         formStage.setTitle("Add Expense");
         formStage.initOwner(owner);
 
-        // Form fields
+
         TextField amountField = new TextField();
         amountField.setPromptText("Enter amount");
         TextField categoryField = new TextField();
@@ -82,11 +82,11 @@ public class ExpenseApp extends Application {
         TextField descriptionField = new TextField();
         descriptionField.setPromptText("Enter description");
 
-        // Buttons
+
         Button submitButton = new Button("Submit");
         Button cancelButton = new Button("Cancel");
 
-        // Submit action
+
         submitButton.setOnAction(e -> {
             try {
                 double amount = Double.parseDouble(amountField.getText());
@@ -115,10 +115,10 @@ public class ExpenseApp extends Application {
             }
         });
 
-        // Cancel action
+
         cancelButton.setOnAction(e -> formStage.close());
 
-        // Form layout
+
         HBox buttonRow = new HBox(10, submitButton, cancelButton);
         buttonRow.setAlignment(Pos.CENTER);
         VBox formLayout = new VBox(10,
@@ -130,13 +130,13 @@ public class ExpenseApp extends Application {
         formLayout.setPadding(new Insets(10));
         formLayout.setAlignment(Pos.CENTER);
 
-        // Create scene
+
         Scene formScene = new Scene(formLayout, 300, 250);
         formStage.setScene(formScene);
         formStage.show();
     }
 
-    // View all expenses
+
     private void viewExpenses() {
         outputArea.clear();
         outputArea.appendText("All Expenses:\n");
@@ -145,13 +145,13 @@ public class ExpenseApp extends Application {
         }
     }
 
-    // Form for updating an expense
+
     private void showUpdateExpenseForm(Stage owner) {
         Stage formStage = new Stage();
         formStage.setTitle("Update Expense");
         formStage.initOwner(owner);
 
-        // Form fields
+
         TextField idField = new TextField();
         idField.setPromptText("Enter expense ID");
         TextField amountField = new TextField();
@@ -163,11 +163,11 @@ public class ExpenseApp extends Application {
         TextField descriptionField = new TextField();
         descriptionField.setPromptText("Enter new description (optional)");
 
-        // Buttons
+
         Button submitButton = new Button("Submit");
         Button cancelButton = new Button("Cancel");
 
-        // Submit action
+
         submitButton.setOnAction(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -208,10 +208,10 @@ public class ExpenseApp extends Application {
             }
         });
 
-        // Cancel action
+
         cancelButton.setOnAction(e -> formStage.close());
 
-        // Form layout
+
         HBox buttonRow = new HBox(10, submitButton, cancelButton);
         buttonRow.setAlignment(Pos.CENTER);
         VBox formLayout = new VBox(10,
@@ -224,27 +224,27 @@ public class ExpenseApp extends Application {
         formLayout.setPadding(new Insets(10));
         formLayout.setAlignment(Pos.CENTER);
 
-        // Create scene
+
         Scene formScene = new Scene(formLayout, 300, 300);
         formStage.setScene(formScene);
         formStage.show();
     }
 
-    // Prompt for deleting an expense
+
     private void showDeleteExpensePrompt(Stage owner) {
         Stage promptStage = new Stage();
         promptStage.setTitle("Delete Expense");
         promptStage.initOwner(owner);
 
-        // Form field
+
         TextField idField = new TextField();
         idField.setPromptText("Enter expense ID");
 
-        // Buttons
+
         Button submitButton = new Button("Delete");
         Button cancelButton = new Button("Cancel");
 
-        // Submit action
+
         submitButton.setOnAction(e -> {
             try {
                 int id = Integer.parseInt(idField.getText());
@@ -259,23 +259,23 @@ public class ExpenseApp extends Application {
             }
         });
 
-        // Cancel action
+
         cancelButton.setOnAction(e -> promptStage.close());
 
-        // Form layout
+
         HBox buttonRow = new HBox(10, submitButton, cancelButton);
         buttonRow.setAlignment(Pos.CENTER);
         VBox formLayout = new VBox(10, new Label("ID:"), idField, buttonRow);
         formLayout.setPadding(new Insets(10));
         formLayout.setAlignment(Pos.CENTER);
 
-        // Create scene
+
         Scene promptScene = new Scene(formLayout, 250, 150);
         promptStage.setScene(promptScene);
         promptStage.show();
     }
 
-    // Generate reports
+
     private void generateReports() {
         outputArea.clear();
         outputArea.appendText("=== Reports ===\n");
@@ -287,7 +287,7 @@ public class ExpenseApp extends Application {
         }
     }
 
-    // Import expenses
+
     private void importExpenses(Stage owner) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select CSV File to Import");
@@ -303,7 +303,7 @@ public class ExpenseApp extends Application {
         }
     }
 
-    // Export expenses
+
     private void exportExpenses(Stage owner) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select CSV File to Export");
@@ -319,7 +319,7 @@ public class ExpenseApp extends Application {
         }
     }
 
-    // Utility method to show alerts
+
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

@@ -8,7 +8,7 @@ public class Expense {
     private LocalDate date;
     private String description;
 
-    // Constructor
+
     public Expense(int id, double amount, String category, LocalDate date, String description) {
         this.id = id;
         this.amount = amount;
@@ -17,7 +17,7 @@ public class Expense {
         this.description = description;
     }
 
-    // Getters and Setters
+
     public int getId() {
         return id;
     }
@@ -54,13 +54,13 @@ public class Expense {
         this.description = description;
     }
 
-    // Convert Expense to CSV format
+
     public String toCsv() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return id + "," + amount + "," + category + "," + date.format(formatter) + "," + description;
     }
 
-    // Create Expense from CSV string
+
     public static Expense fromCsv(String csvLine, int id) {
         String[] parts = csvLine.split(",");
         double amount = Double.parseDouble(parts[1]);
@@ -70,7 +70,7 @@ public class Expense {
         return new Expense(id, amount, category, date, description);
     }
 
-    // String representation for display
+
     @Override
     public String toString() {
         return "ID: " + id + ", Amount: $" + amount + ", Category: " + category +
