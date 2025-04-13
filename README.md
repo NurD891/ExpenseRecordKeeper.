@@ -1,5 +1,8 @@
 # Expense Record Keeper
 
+## Presentation
+[View Presentation](https://drive.google.com/drive/folders/1h1UuqzGyfswWVQxZGfhhV9Lg6qSM2qk9?usp=drive_link)
+
 ## Project Description
 The **Expense Record Keeper** is a Java-based command-line application that allows users to track personal or business expenses. Users can record expenses, categorize them, update or delete records, generate summary reports, and import/export data to CSV files. The application ensures data persistence by storing expenses in a file and includes input validation for user-friendly interaction.
 
@@ -44,6 +47,3 @@ The project aims to:
 - **ExpenseManager**: Manages CRUD operations, reports, and file operations.
 - **FileHandler**: Handles reading/writing to CSV files.
 - **Menu**: Provides the command-line interface and input validation.
-
-## Presentation
-[View Presentation](https://drive.google.com/drive/folders/1h1UuqzGyfswWVQxZGfhhV9Lg6qSM2qk9?usp=drive_link)
