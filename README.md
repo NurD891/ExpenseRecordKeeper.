@@ -45,5 +45,5 @@ The project aims to:
 - **FileHandler**: Handles reading/writing to CSV files.
 - **Menu**: Provides the command-line interface and input validation.
 
-
-
+## Presentation
+[View Presentation](https://drive.google.com/drive/folders/1h1UuqzGyfswWVQxZGfhhV9Lg6qSM2qk9?usp=drive_link)
